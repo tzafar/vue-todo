@@ -3,7 +3,7 @@
         <p>Completed Tasks: {{todos.filter(todo => todo.done === true).length}}</p>
         <p>Pending Tasks: {{todos.filter(todo => todo.done === false).length}}</p>
         <div class="ui centered card">
-            <todo v-on:delete-todo="deleteTodo" v-on:complete-todo="completeTodo" v-for="todo in todos"
+            <todo @edit-todo="editTodo" v-on:delete-todo="deleteTodo" v-on:complete-todo="completeTodo" v-for="todo in todos"
                   v-bind:key="todo" v-bind:todo="todo"></todo>
         </div>
     </div>
@@ -22,6 +22,9 @@
             },
             completeTodo(todo) {
                 this.$emit('complete-todo-list', todo)
+            },
+            editTodo(updatedTodo){
+                this.$emit('edit-todo-list', updatedTodo)
             }
         }
     }
