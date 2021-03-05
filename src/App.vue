@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <todo-list v-bind:todos="todos"/>
-    <create-todo v-on:add-todo="addTodo"></create-todo>
+    <todo-list v-bind:todos="todos" v-on:delete-todo-list="deleteTodo" v-on:complete-todo-list="completeTodo"/>
+    <create-todo @:add-todo="addTodo" @delete-todo="deleteTodo" ></create-todo>
   </div>
 </template>
 
@@ -41,6 +41,14 @@
     methods: {
       addTodo(todo){
         this.todos.push(todo)
+      },
+      deleteTodo(todo) {
+        const todoIndex = this.todos.indexOf(todo)
+        this.todos.splice(todoIndex, 1)
+      },
+      completeTodo(todo) {
+        const index = this.todos.indexOf(todo)
+        this.todos[index].done = true
       }
     }
 
