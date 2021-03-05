@@ -30,10 +30,12 @@
 <script>
   export default {
     name: 'CreateTodo',
-    props: {
-      isCreating: false,
-      titleText: '',
-      projectText: ''
+    data() {
+      return {
+        isCreating: false,
+        titleText: '',
+        projectText: ''
+      }
     },
     methods: {
       sendForm () {
