@@ -1,4 +1,6 @@
-# todo-app
+# Todo-app
+
+Application url: https://toseef-todo.herokuapp.com/
 
 ## Project setup
 ```
